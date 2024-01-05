@@ -1,30 +1,34 @@
 import path from 'path'
-
-import { payloadCloud } from '@payloadcms/plugin-cloud'
-import { mongooseAdapter } from '@payloadcms/db-mongodb' // database-adapter-import
-import { webpackBundler } from '@payloadcms/bundler-webpack' // bundler-import
-import { slateEditor } from '@payloadcms/richtext-slate' // editor-import
+import { webpackBundler } from '@payloadcms/bundler-webpack'; // bundler-import
+import { mongooseAdapter } from '@payloadcms/db-mongodb'; // database-adapter-import
+import { slateEditor } from '@payloadcms/richtext-slate'; // editor-import
 import { buildConfig } from 'payload/config'
 
 import Users from './collections/Users'
 
 export default buildConfig({
-  admin: {
-    user: Users.slug,
-    bundler: webpackBundler(), // bundler-config
-  },
-  editor: slateEditor({}), // editor-config
+  serverURL: process.env.NEXT_PUBLIC_SERVER_URL || "",
   collections: [Users],
-  typescript: {
-    outputFile: path.resolve(__dirname, 'payload-types.ts'),
+  routes: {
+    admin: '/admin'
   },
-  graphQL: {
-    schemaOutputFile: path.resolve(__dirname, 'generated-schema.graphql'),
+  admin: {
+    user: "users",
+    bundler: webpackBundler(),
+    meta: {
+      titleSuffix: "- Payload Playground",
+      favicon: "/favicon.ico",
+      ogImage: "/image.png"
+    }
   },
-  plugins: [payloadCloud()],
-  // database-adapter-config-start
+  rateLimit: {
+    max: 2000,
+  },
+  editor: slateEditor({}),
   db: mongooseAdapter({
-    url: process.env.DATABASE_URI,
+    url: process.env.MONGODB_URL as string
   }),
-  // database-adapter-config-end
+  typescript: {
+    outputFile: path.resolve(__dirname, "payload-types.ts")
+  }
 })
