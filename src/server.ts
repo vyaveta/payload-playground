@@ -19,14 +19,6 @@ export type TcreateContext = inferAsyncReturnType<typeof createContext>
 
 const start = async () => {
   try{
-    // await payload.init({
-      //   secret: process.env.PAYLOAD_SECRET as string,
-      //   express: app,
-    //   onInit: async () => {
-    //     payload.logger.info(`Payload Admin URL: ${payload.getAdminURL()}`)
-    //   },
-    // })
-    
     // Initialize Payload
     const payload = await getPayloadClient({
       initOptions: {

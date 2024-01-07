@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import "./globals.css"
+import "../globals.css"
 import {Are_You_Serious} from "next/font/google"
 import { Toaster } from "react-hot-toast"
 
