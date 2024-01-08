@@ -33,34 +33,34 @@ export const getInventions = async () => {
 }
 
 
-// export const getHeaders = async () => {
-//     let headers: any[] = []
-//     try{
+export const getHeaders = async () => {
+    let headers: any[] = []
+    try{
 
-//         await client.fetch('*[_type == "header"]').then((data) => {
-//             headers = data
-//         }).catch((err) => {
-//             throw new Error(err)
-//         })
+        await client.fetch('*[_type == "header"]').then((data) => {
+            headers = data
+        }).catch((err) => {
+            throw new Error(err)
+        })
 
-//     }catch(_){
-//         console.error("[SANITY_HEADERS]: Failed to retrieve headers", _)
-//     }finally{
-//         return headers
-//     }
-// }
+    }catch(_){
+        console.error("[SANITY_HEADERS]: Failed to retrieve headers", _)
+    }finally{
+        return headers
+    }
+}
 
-// export const getNavItems = async () => {
-//     let navItems: any[] = []
-//     try{
-//         await client.fetch('*[_type == "nav_items"]').then((data) => {
-//             navItems = data
-//         }).catch((err) => {
-//             throw new Error(err)
-//         })
-//     }catch(_){
-//         console.error("[SANITY_GET-NAV-ITEMS]: Failed to retrive nav-items", _)
-//     }finally{
-//         return navItems
-//     }
-// }
+export const getNavItems = async () => {
+    let navItems: any[] = []
+    try{
+        await client.fetch('*[_type == "nav_items"]').then((data) => {
+            navItems = data
+        }).catch((err) => {
+            throw new Error(err)
+        })
+    }catch(_){
+        console.error("[SANITY_GET-NAV-ITEMS]: Failed to retrive nav-items", _)
+    }finally{
+        return navItems
+    }
+}

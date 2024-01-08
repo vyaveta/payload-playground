@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "../globals.css"
 // import {Are_You_Serious} from "next/font/google"
 import { Toaster } from "react-hot-toast"
+import Navbar from "@/components/navbar";
 
 // const are_you_serious = Are_You_Serious({
 //     subsets: ["latin"],
@@ -21,6 +22,7 @@ export default function RootLayout({
     return (
         <html lang="en" className="h-full" >
             <body>
+                <Navbar />
                 <main>
                     {children}
                 </main>

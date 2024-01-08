@@ -15,3 +15,8 @@ export const navItems = {
         }
     ]
 }
+
+export type TnavItems = {
+    name: string,
+    url: string,
+}

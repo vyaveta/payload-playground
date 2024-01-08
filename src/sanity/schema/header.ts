@@ -10,3 +10,7 @@ export const header = {
         }
     ]
 }
+
+export type Theader = {
+    title: string
+}

@@ -4,6 +4,7 @@ import { navItems } from "@/sanity/schema/nav-items"
 import { createClient } from "next-sanity"
 import { defineConfig } from "sanity"
 import { deskTool } from "sanity/desk"
+import  ImageUrlBuilder  from "@sanity/image-url";
 
 export const config = defineConfig({
     projectId: "3ejsn20b",
@@ -20,3 +21,7 @@ export const config = defineConfig({
     dataset: "production", 
     apiVersion: "1",
 })
+
+const builder = ImageUrlBuilder(client)
+
+export const urlFor = (source: any): string | any => builder.image(source)
