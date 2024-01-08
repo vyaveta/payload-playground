@@ -1,0 +1,24 @@
+/*
+ * ATTENTION: An "eval-source-map" devtool has been used.
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
+exports.id = "vendor-chunks/speedometer";
+exports.ids = ["vendor-chunks/speedometer"];
+exports.modules = {
+
+/***/ "(ssr)/./node_modules/speedometer/index.js":
+/*!*******************************************!*\
+  !*** ./node_modules/speedometer/index.js ***!
+  \*******************************************/
+/***/ ((module) => {
+
+eval("var tick = 1;\nvar maxTick = 65535;\nvar resolution = 4;\nvar inc = function() {\n    tick = tick + 1 & maxTick;\n};\nvar timer = setInterval(inc, 1000 / resolution | 0);\nif (timer.unref) timer.unref();\nmodule.exports = function(seconds) {\n    var size = resolution * (seconds || 5);\n    var buffer = [\n        0\n    ];\n    var pointer = 1;\n    var last = tick - 1 & maxTick;\n    return function(delta) {\n        var dist = tick - last & maxTick;\n        if (dist > size) dist = size;\n        last = tick;\n        while(dist--){\n            if (pointer === size) pointer = 0;\n            buffer[pointer] = buffer[pointer === 0 ? size - 1 : pointer - 1];\n            pointer++;\n        }\n        if (delta) buffer[pointer - 1] += delta;\n        var top = buffer[pointer - 1];\n        var btm = buffer.length < size ? 0 : buffer[pointer === size ? 0 : pointer];\n        return buffer.length < resolution ? top : (top - btm) * resolution / buffer.length;\n    };\n};\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9wYXlsb2FkLXBsYXlncm91bmQvLi9ub2RlX21vZHVsZXMvc3BlZWRvbWV0ZXIvaW5kZXguanM/MjMzOSJdLCJzb3VyY2VzQ29udGVudCI6WyJ2YXIgdGljayA9IDFcbnZhciBtYXhUaWNrID0gNjU1MzVcbnZhciByZXNvbHV0aW9uID0gNFxudmFyIGluYyA9IGZ1bmN0aW9uICgpIHtcbiAgdGljayA9ICh0aWNrICsgMSkgJiBtYXhUaWNrXG59XG5cbnZhciB0aW1lciA9IHNldEludGVydmFsKGluYywgKDEwMDAgLyByZXNvbHV0aW9uKSB8IDApXG5pZiAodGltZXIudW5yZWYpIHRpbWVyLnVucmVmKClcblxubW9kdWxlLmV4cG9ydHMgPSBmdW5jdGlvbiAoc2Vjb25kcykge1xuICB2YXIgc2l6ZSA9IHJlc29sdXRpb24gKiAoc2Vjb25kcyB8fCA1KVxuICB2YXIgYnVmZmVyID0gWzBdXG4gIHZhciBwb2ludGVyID0gMVxuICB2YXIgbGFzdCA9ICh0aWNrIC0gMSkgJiBtYXhUaWNrXG5cbiAgcmV0dXJuIGZ1bmN0aW9uIChkZWx0YSkge1xuICAgIHZhciBkaXN0ID0gKHRpY2sgLSBsYXN0KSAmIG1heFRpY2tcbiAgICBpZiAoZGlzdCA+IHNpemUpIGRpc3QgPSBzaXplXG4gICAgbGFzdCA9IHRpY2tcblxuICAgIHdoaWxlIChkaXN0LS0pIHtcbiAgICAgIGlmIChwb2ludGVyID09PSBzaXplKSBwb2ludGVyID0gMFxuICAgICAgYnVmZmVyW3BvaW50ZXJdID0gYnVmZmVyW3BvaW50ZXIgPT09IDAgPyBzaXplIC0gMSA6IHBvaW50ZXIgLSAxXVxuICAgICAgcG9pbnRlcisrXG4gICAgfVxuXG4gICAgaWYgKGRlbHRhKSBidWZmZXJbcG9pbnRlciAtIDFdICs9IGRlbHRhXG5cbiAgICB2YXIgdG9wID0gYnVmZmVyW3BvaW50ZXIgLSAxXVxuICAgIHZhciBidG0gPSBidWZmZXIubGVuZ3RoIDwgc2l6ZSA/IDAgOiBidWZmZXJbcG9pbnRlciA9PT0gc2l6ZSA/IDAgOiBwb2ludGVyXVxuXG4gICAgcmV0dXJuIGJ1ZmZlci5sZW5ndGggPCByZXNvbHV0aW9uID8gdG9wIDogKHRvcCAtIGJ0bSkgKiByZXNvbHV0aW9uIC8gYnVmZmVyLmxlbmd0aFxuICB9XG59XG4iXSwibmFtZXMiOlsidGljayIsIm1heFRpY2siLCJyZXNvbHV0aW9uIiwiaW5jIiwidGltZXIiLCJzZXRJbnRlcnZhbCIsInVucmVmIiwibW9kdWxlIiwiZXhwb3J0cyIsInNlY29uZHMiLCJzaXplIiwiYnVmZmVyIiwicG9pbnRlciIsImxhc3QiLCJkZWx0YSIsImRpc3QiLCJ0b3AiLCJidG0iLCJsZW5ndGgiXSwibWFwcGluZ3MiOiJBQUFBLElBQUlBLE9BQU87QUFDWCxJQUFJQyxVQUFVO0FBQ2QsSUFBSUMsYUFBYTtBQUNqQixJQUFJQyxNQUFNO0lBQ1JILE9BQU8sQUFBQ0EsT0FBTyxJQUFLQztBQUN0QjtBQUVBLElBQUlHLFFBQVFDLFlBQVlGLEtBQUssQUFBQyxPQUFPRCxhQUFjO0FBQ25ELElBQUlFLE1BQU1FLEtBQUssRUFBRUYsTUFBTUUsS0FBSztBQUU1QkMsT0FBT0MsT0FBTyxHQUFHLFNBQVVDLE9BQU87SUFDaEMsSUFBSUMsT0FBT1IsYUFBY08sQ0FBQUEsV0FBVyxDQUFBO0lBQ3BDLElBQUlFLFNBQVM7UUFBQztLQUFFO0lBQ2hCLElBQUlDLFVBQVU7SUFDZCxJQUFJQyxPQUFPLEFBQUNiLE9BQU8sSUFBS0M7SUFFeEIsT0FBTyxTQUFVYSxLQUFLO1FBQ3BCLElBQUlDLE9BQU8sQUFBQ2YsT0FBT2EsT0FBUVo7UUFDM0IsSUFBSWMsT0FBT0wsTUFBTUssT0FBT0w7UUFDeEJHLE9BQU9iO1FBRVAsTUFBT2UsT0FBUTtZQUNiLElBQUlILFlBQVlGLE1BQU1FLFVBQVU7WUFDaENELE1BQU0sQ0FBQ0MsUUFBUSxHQUFHRCxNQUFNLENBQUNDLFlBQVksSUFBSUYsT0FBTyxJQUFJRSxVQUFVLEVBQUU7WUFDaEVBO1FBQ0Y7UUFFQSxJQUFJRSxPQUFPSCxNQUFNLENBQUNDLFVBQVUsRUFBRSxJQUFJRTtRQUVsQyxJQUFJRSxNQUFNTCxNQUFNLENBQUNDLFVBQVUsRUFBRTtRQUM3QixJQUFJSyxNQUFNTixPQUFPTyxNQUFNLEdBQUdSLE9BQU8sSUFBSUMsTUFBTSxDQUFDQyxZQUFZRixPQUFPLElBQUlFLFFBQVE7UUFFM0UsT0FBT0QsT0FBT08sTUFBTSxHQUFHaEIsYUFBYWMsTUFBTSxBQUFDQSxDQUFBQSxNQUFNQyxHQUFFLElBQUtmLGFBQWFTLE9BQU9PLE1BQU07SUFDcEY7QUFDRiIsImZpbGUiOiIoc3NyKS8uL25vZGVfbW9kdWxlcy9zcGVlZG9tZXRlci9pbmRleC5qcyIsInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///(ssr)/./node_modules/speedometer/index.js\n");
+
+/***/ })
+
+};
+;

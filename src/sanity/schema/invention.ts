@@ -45,4 +45,15 @@ const invention = {
     ]
 }
 
+export type Tinvention = {
+    name: string,
+    slug: {
+        current: string,
+        _type: string,
+    },
+    image: string,
+    url: string,
+    content: string,
+}
+
 export default invention

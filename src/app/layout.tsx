@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import "../globals.css"
-import {Are_You_Serious} from "next/font/google"
+// import {Are_You_Serious} from "next/font/google"
 import { Toaster } from "react-hot-toast"
 
-const are_you_serious = Are_You_Serious({
-    subsets: ["latin"],
-    weight: "400"
-})
+// const are_you_serious = Are_You_Serious({
+//     subsets: ["latin"],
+//     weight: "400"
+// })
 
 export const metadata: Metadata = {
     title: "payload playground",
